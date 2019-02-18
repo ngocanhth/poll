@@ -1,0 +1,76 @@
+<h2>Thêm mới bài viết</h2>
+
+<form class="form contact-inchoo" method="post" action="<?php echo $block->getUrl('blog/index/add'); ?>">
+    <fieldset class="fieldset">
+        <div class="field name required">
+            <label class="label" for="name"><span>Field 1 (using data-validate)</span></label>
+            <div class="control">
+                        <input name="name" id="name" title="Field 1" value="" class="input-text" type="text" />
+            </div>
+        </div>
+            <div class="field name required">
+            <label class="label" for="status"><span>Field 2 (using attribute)</span></label>
+            <div class="control">
+                <input name="status" id="status" title="Field 2" value="" class="input-text" type="text" />
+            </div>
+        </div>
+            <div class="field name required">
+                    <label class="label" for="urlkey"><span>Field 3 (using classname)</span></label>
+                    <div class="control">
+                        <input name="urlkey" id="urlkey" title="Field 2" value="" type="text" class="input-text" />
+                    </div>
+            </div>
+            <div class="field name required">
+                    <label class="label" for="content"><span>Field 4 (using data-mage-init)</span></label>
+                    <div class="control">
+                        <input name="content" id="content" title="Field 4" value="" class="input-text" type="text" />
+                    </div>
+            </div>
+            <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+            <div class="primary">
+                    <input type="hidden" name="hideit" id="hideit" value="" />
+                    <button type="submit" title="Submit" class="action submit primary">
+                        <span>Submit</span>
+                    </button>
+            </div>
+        </div>
+</form>
+
+
+
+
+<h2> Danh sách bài viết </h2>
+<?php  
+        $show = $block->getshow();
+        var_dump($show);
+?>
+<form action="" method="post" id="form-validate">
+<table style="border-collapse: collapse; width:400px; border:1px solid #000;">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Url key</th>
+        <th> Status </th>
+        <th> Image </th>
+        <th> Content </th>
+        <!-- <th> Create at </th>
+        <th> Update at </th> -->
+    </tr>
+
+    <?php 
+            foreach($show as $display){
+    ?>
+    </tr>
+        <td><?php echo $display->getPostId() ?></td>
+        <td><?php echo $display->getName() ?></td>
+        <td><?php echo $display->getUrlKey() ?></td>
+        <td><?php echo $display->getStatus() ?></td>
+        <td><?php echo $display->getImage() ?></td>
+        <td><?php echo $display->getContent() ?></td>
+    </tr>
+    <?php  } ?>
+
+</table>
+</form>

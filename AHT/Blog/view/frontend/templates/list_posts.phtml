@@ -1,0 +1,38 @@
+
+<h2> Danh sách các bài post </h2>
+<?php  
+        $show = $block->getshow();
+?>
+
+<table style="width:900px; border:1px solid #000;">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Url key</th>
+        <th> Status </th>
+        <th> Image </th>
+        <th> Content </th>
+        <th> Action </th>
+        <!-- <th> Create at </th>
+        <th> Update at </th> -->
+    </tr>
+
+    <?php 
+            foreach($show as $display){
+    ?>
+    </tr>
+        <td><?php echo $display->getPostId() ?></td>
+        <td><?php echo $display->getName() ?></td>
+        <td><?php echo $display->getUrlKey() ?></td>
+        <td><?php echo $display->getStatus() ?></td>
+        <td><?php echo $display->getImage() ?></td>
+        <td><?php echo $display->getContent() ?></td>
+        <td>
+            <a href="<?php echo $display->getPostId(); ?>">Detail</a>
+            <a href="<?php echo $block->getUrl('blog/index/edit',['id' => $display->getPostId()]); ?>">Edit</a>
+            <a href="<?php echo $block->getUrl('blog/index/delete',['id' => $display->getPostId()]); ?>">Delete</a>
+        </td>
+    </tr>
+    <?php  } ?>
+
+</table>

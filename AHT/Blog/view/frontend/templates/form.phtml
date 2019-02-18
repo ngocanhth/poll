@@ -1,0 +1,12 @@
+<h2>Thêm mới bài post</h2>
+<form action="<?php echo $block->getUrl('blog/index/add'); ?>" method="post" id="form-validate">
+<table style="width:400px;">
+    Name : <input type="text" id="name" name="name"><br/>
+    Url key : <input type="number" name="urlkey"><br/>
+    Status: <input type="checkbox" id="status" name="status" value="1"/><br>
+    content :<textarea name="content"></textarea>
+    create at : <input type="date" name="create_at"><br/>
+    update at: <input type="date" name="update_at"><br/>
+    <input type="submit" value="Submit" name="submmit">
+</table>
+</form>
